@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./build/react.js"></script>
+    <script src="./build/react-dom.js"></script>
+    <script src="./build/browser.min.js"></script>
+</head>
+
+<body>
+
+<div id="app"></div>
+<script type="text/babel">
+
+// // 提取子组件
+// class Avatar extends React.Component {
+//   render() {
+//     return (
+//       <img className="avatar"
+//         src={this.props.user.avatarUrl}
+//         alt={this.props.user.name}
+//       />
+//     );
+//   }
+// }
+
+// // 待提取的子组件
+// class UserInfo extends React.Component {
+//   render() {
+//     return (
+//       <div className="UserInfo">
+//         <Avatar user={this.props.user} />
+//         <div className="UserInfo-name">
+//           {this.props.user.name}
+//         </div>
+//       </div>
+//     );
+//   }
+// }
+
+// // 父组件
+// class Comment extends React.Component {
+//   render() {
+//     return (
+//       <div class="comment">
+//           <UserInfo user={this.props.author}/>
+//           <div className="comment-text">
+//             {this.props.text}
+//           </div>
+//           <div className="comment-date">
+//             {formatDate(this.props.date)}
+//           </div>
+//       </div>
+//     );
+//   }
+// }
+
+// const props = {
+//   author: {
+//     name: 'lisi',
+//     avatarUrl: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1502944355330&di=ce8c8c58c7d6d10756710205e60bec84&imgtype=0&src=http%3A%2F%2Fi7.qhmsg.com%2Ft012fabdc3a00695774.jpg'
+//   },
+//   user: 'syo',
+//   text: 'I Love U',
+//   date: '2017-08-12'
+// };
+
+
+
+ReactDOM.render(
+  <Comment props={this.props} />,
+  document.getElementById('app')
+);
+
+</script>
+</body>
+</html>

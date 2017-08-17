@@ -46,5 +46,73 @@ setInterval(tick, 1000);
 
 
 
+### 组合组件
+组合组件可以在它的输出中引用其他组件，这就可以让我们同用一个组件来抽象出任意层次的细节。
+我们可以创建一个App组件 用来多次渲染Welcome组件。
 
+```javascript
+
+// 创建一个Welcome 组件
+class Welcome extends React.component {
+  render() {
+    return (
+      <h1>Hello {this.props.name}</h1>
+    );
+  }
+}
+
+// 创建父组件 App
+class App extends React.component {
+  render() {
+    return (
+      <div>
+        <Welcome name="sy"/>
+        <Welcome name="sy1"/>
+        <Welcome name="sy2"/>
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(
+  <App />,
+  document.getElementById('app')  
+);
+
+```
+
+**组件的返回值只能有一个根元素。这也是我们要用一个<div></div>来包裹所有 <Welcome />元素的原因**
+
+#### 提取组件
+
+```javascript
+
+class Welcome extends React.component {
+  render() {
+    return (
+      <div className="comment">
+        <div class="userInfo">
+          <img className="Avatar"
+            src={props.author.avatarUrl}
+            alt={props.author.name}
+          />
+          <div className="userInfo-name">
+            {props.author.name}
+          </div>
+        </div>
+        <div className="comment-text">
+          {props.text}
+        </div>
+        <div className="comment-date">
+          {formatDate(props.date)}
+        </div>
+      </div>
+    );
+  }
+}
+ReactDOM.render(
+  <Welcome />,
+  document.getElementById('app')
+);
+```
 
