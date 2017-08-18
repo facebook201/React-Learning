@@ -1,7 +1,7 @@
 ### 项目说明
 
 
-#### 1 
+#### 1
 * script 标签type属性是 text/babel。 这是因为React独有的JSX语法。凡事使用JSX的地方 都要加上type="text/babel"。
 
 * 其次 三个库 react.js（**React的核心库**） 、react-dom.js（**DOM相关的功能**）、Browser.js（**将JSX语法转为JavaScript语法**）。 必须首先加载
@@ -283,7 +283,7 @@ ReactDOM.render(
 **组件style属性的设置方式要注意 不能使用 style="opacity: {this.state.opacity}。而是style={{opacity: this.state.opacity}}"。因为React组件的样式是一个对象。第一个重大括号是JavaScript语法。两个是样式对象**
 
 
-### Ajax 
+### Ajax
 
 组件的数据来源，通常是通过Ajax请求服务器获取。可以使用componentDidMount方法设置Ajax请求。等到成功之后，再用this.setState 方法渲染UI
 
@@ -292,11 +292,3 @@ ReactDOM.render(
 
 
 ```
-
-
-
-
-
-
-
-

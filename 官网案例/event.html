@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="./build/style.css"></link>
     <script src="./build/react.js"></script>
     <script src="./build/react-dom.js"></script>
     <script src="./build/browser.min.js"></script>
@@ -16,9 +17,32 @@
 <div id="app"></div>
 <script type="text/babel">
 
+class Toggle extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      isToggle: true
+    };
+    this.handleClick = this.handleClick.bind(this);
+  }
 
+  handleClick() {
+    this.setState(prevState => ({
+      isToggle: !prevState.isToggle
+    }));
+  }
+
+  render() {
+    return (
+      <button onClick={this.handleClick}>
+        {this.state.isToggle ? 'ON' : 'OFF'}
+      </button>
+    );
+  }
+}
 
 ReactDOM.render(
+  <Toggle />,
   document.getElementById('app')
 );
 
