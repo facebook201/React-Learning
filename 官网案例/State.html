@@ -22,6 +22,7 @@ class Clock extends React.Component {
 
   // 组件渲染之后进行挂载
   componentDidMount() {
+    console.log(this.props);
     this.timerID = setInterval(() => this.tick(), 1000);
   }
 
@@ -41,14 +42,14 @@ class Clock extends React.Component {
     return (
       <div>
         <h1>Hello</h1>
-        <h2>It is {this.state.date.toLocaleTimeString()}.</h2>
+        <h2>It is {this.state.date.toLocaleTimeString()}.{this.props.name}{this.props}</h2>
       </div>
     );
   }
 }
 
 ReactDOM.render(
-  <Clock />,
+  <Clock name="syo"/>,
   document.getElementById('app')
 );
 
