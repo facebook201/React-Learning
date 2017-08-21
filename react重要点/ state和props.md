@@ -81,31 +81,41 @@ State 中包含的状态都应该是不可变对象。当State中的某个状态
   this.setState(preState => {
      books: [...preState.books, 'React'] 
   });
+  ```
 
 
   // 当从books过滤部分元素后，作为新状态时，使用数组的filter方法:
-  var books = this.state.books;
-  this.setState({
-    books: books.filter(item => {
-      return item != 'React';    
-    });  
-  });
-
-  ```
-
-  **push 、pop、shift、unshift、splice** 等方法来修改数组的状态会修改原数组， 而concat slice filter 会返回新的数组，建议使用此类方法修改。
-
-
-
-### 状态的类型是普通对象 
 
 ```javascript
+var books = this.state.books;
+  this.setState({
+	books: books.filter(item => {
+  		return item != 'React';
+    });
+});  
+```
+  **push 、pop、shift、unshift、splice** 等方法来修改数组的状态会修改原数组， 而concat slice filter 会返回新的数组，建议使用此类方法修改。
+
+  ```javascript
+
 // 方法一 将state 先赋值给另外的变量 然后使用Object.assign创建新对象
 var owner = this.state.owner;
 this.setState({
   owner: Object.assign({}, owner, {name: 'Jason'});
 });
-```
+
+// 二 使用 preState、Object.assign 创建的对象
+this.setState(preState => {
+   owner: Object.assign({}, preState.owner, {name: 'Jason'}); 
+});
+  ```
+
+
+
+**创建新的状态的关键是，避免使用会直接修改原对象的方法，而是使用可以返回一个新对象的方法。当然 可以使用immutable的js对象** 
+
+* 不可变的对象方便管理和调试 
+* 性能考虑 当对象组件状态都是不可变对象是 我们在组件的shouldComponentUpdate方法中 仅需要比较状态的引用就可以判断状态是否真的改变。
 
 
 
