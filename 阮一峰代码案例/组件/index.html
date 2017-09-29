@@ -16,15 +16,37 @@
   /**
    * you code goes here!
    */
-    
-  var HelloMessage = React.createClass({
-    render: function() {
-      return <h1>Hello {this.props.name}</h1>
-    }
-  });
+
+   class Parent extends Component {
+     constructor() {
+      super();
+      this.state = {
+        msg: 'start'
+      };
+     }
+
+     componentDidMount() {
+       setTimeout(() => {
+         this.setState({
+           msg: 'end'
+         });
+       }, 1000);
+     }
+
+     render() {
+       return <Child_1 msg={this.state.msg}></Child_1>
+     }
+   }
+
+   class Child_1 extends Component {
+     render() {
+       return <p>{this.props.msg}</p>
+     }
+   }
+
 
   ReactDOM.render(
-    <HelloMessage name="John" />,
+    <Parent />,
     document.getElementById('app')
   );
   </script>

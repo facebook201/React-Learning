@@ -15,17 +15,48 @@
 
 <div id="app"></div>
 <script type="text/babel">
-class Welcome extends React.Component {
+
+class Parent extends Component {
+  constructor(){
+    super();
+    this.state = {
+      msg: 'start'
+    };
+  }
+
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({
+        msg: 'end'
+      });
+    }, 1000);
+  }
+
   render() {
-    return <h1>Hello, {this.props.name}</h1>;
+    return <Child_1 msg={this.state.msg}></Child_1>
   }
 }
 
-const element = <Welcome name="Sara" />;
-ReactDOM.render(
-  element,
-  document.getElementById('app')
-);
+// 子组件
+class Child_1 extends Component {
+  render() {
+    return <p>{this.props.msg}</p>
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </script>
 </body>
