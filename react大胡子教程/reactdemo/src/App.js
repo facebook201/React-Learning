@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import LikeButton from './components/base/button';
+import CommentContainer from './components/comment/commentContainer';
 
 class App extends Component {
     render() {
         return (
           <div className="App">
-            <LikeButton />
+            <CommentContainer />
           </div>
         );
     }
