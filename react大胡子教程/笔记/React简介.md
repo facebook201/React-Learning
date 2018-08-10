@@ -164,3 +164,49 @@ class List extends Component {
 }
 ```
 
+
+
+#### 实际开发 绑定表单的值
+
+React 里面的state值要通过setState来改变其值。所以要通过监听一个方法来改变值
+
+```javascript
+changeValue(event) {
+    this.setState({
+        username: event.target.value
+    })        
+}
+
+<input value={this.state.username} onChange={this.changeValue.bind(this)} />
+
+```
+
+
+
+那么我们把这个状态传给父组件 然后父组件下发给其他的子组件
+
+* 首先父组件定义一个事件 通过props传给子组件
+* 子组件接收到事件之后 触发一个事件 在这个事件里面调用父组件传来的函数 把要传给父组件的数据 传个这个函数即可
+* 父组件会通过传过去的函数 接收到传过来的值
+
+```javascript
+// 父组件的函数
+handleSubmitComment(val) {
+    // val是子组件传来的
+    console.log(val);
+}
+<CommentInput onSubmit={this.handleSubmitComment.bind(this)} />
+
+
+// 子组件
+submit() {
+    if (this.props.onSubmit) {
+        // 如果父组件有提供这个方法
+        const { username, content } = this.state;
+        this.props.onSubmit({ username, content })
+    }
+    this.setState({content: ''});
+}
+<button onClick={this.submit.bind(this)}></button>
+```
+

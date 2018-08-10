@@ -3,10 +3,16 @@ import Comment from './Comment';
 
 // 文字列表
 class CommentList extends Component {
+  static defaultProps = {
+    comments: []
+  };
   render() {
     return (
       <div>
-        <Comment />
+        {
+          this.props.comments.map((comment, i) =>
+            <Comment comment={comment} key={i} />
+        )}
       </div>
     );
   }
