@@ -17,4 +17,4 @@ export default class RIcon extends PureComponent {
     const cls = cx('ivu-icon', `ivu-icon-${type}`, className);
     return <i className={cls} {...otherProps} />;
   }
-}
+};
