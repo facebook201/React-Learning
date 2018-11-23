@@ -5,7 +5,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 function resolve(dir) {
   return path.join(__dirname, '../', dir);
 }
-
 module.exports = {
   entry: './src/index.js',
   output: {
@@ -21,13 +20,21 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.css$/,
+        loader: 'style-loader!css-loader'
+      },
+      {
+        test: /\.less$/,
+        loader: 'style-loader!css-loader!less-loader'
+      },
+      {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         loader: 'babel-loader'
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
-        loader: 'url-loader'
+        loader: 'file-loader'
       },
       {
         test: /\.(jpg|jpeg|png|gif)$/,
@@ -37,11 +44,7 @@ module.exports = {
         }
       },
       {
-        test: /\.html$/,
-        loader: 'html-loader'
-      },
-      {
-        exclude: [/\.js$/, /\.html$/, /\.styl$/, /\.json$/],
+        exclude: [/\.js$/, /\.html$/, /\.less$/, /\.css$/, /\.json$/],
         loader: 'file-loader',
         options: {
           name: 'static/[name].[hash:8].[ext]'
