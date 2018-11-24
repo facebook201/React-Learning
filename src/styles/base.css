@@ -13,3 +13,13 @@ img {position: relative;display: inline-block; color: transparent; overflow: hid
 /*  */
 .l {float: left;}
 .r {float: right;}
+
+
+button {
+  border: 0;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+button::focus {
+  outline: none;
+}

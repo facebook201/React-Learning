@@ -8,7 +8,6 @@ export default class App extends React.Component {
     return (
       <div className='ap11p'>
         <Upload />
-        {/* <input value={this.state.value} ref={input => this.input = input } onChange={this.handleChange} /> */}
       </div>
     );
   };
