@@ -119,7 +119,15 @@ ReactDOM.render(
 
 
 
-> 3 不要在属性上箭头函数
+> 3 shouldComponentUpdate
+
+当props或state改变的时候。 如果他返回一个true，render会被调用。组件会重新渲染。
+
+
+
+
+
+#### React.PureComponent 
 
 
 
