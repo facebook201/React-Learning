@@ -127,14 +127,6 @@ ReactDOM.render(
 
 
 
-#### React.PureComponent 
-
-
-
-
-
-
-
 
 
 
