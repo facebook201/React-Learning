@@ -6,5 +6,5 @@ import '@/styles/index.less';
 
 ReactDOM.render(
   <App />,
-  document.getElementById('root')
+  document.getElementById('app-root')
 );
