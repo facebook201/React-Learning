@@ -66,7 +66,7 @@ function Child() {
 export default class App extends React.Component {
   render() {
     return (
-      <div className='ap11p'>
+      <div className='app'>
         <Parent />
       </div>
     );
