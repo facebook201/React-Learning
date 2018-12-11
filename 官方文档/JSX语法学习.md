@@ -116,7 +116,10 @@ const props = {
     bar: y
 };
 
+// <Component foo="x" bar="y" /> 跟下面的...扩展运算符是一样的
 const component = <Component {...props} />;
+
+
 
 // 如果需要覆盖
 let props = {foo: 'default'};
