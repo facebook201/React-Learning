@@ -30,7 +30,7 @@ export default class Input extends React.Component {
     // if (onChange) {
     //   onChange(e.target.value);
     // }
-    this.
+    // this.
   }
   
   render() {

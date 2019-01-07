@@ -6,13 +6,13 @@ function resolve(dir) {
   return path.join(__dirname, '../', dir);
 }
 module.exports = {
-  entry: './src/index.js',
+  entry: './src/index.tsx',
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, '../dist')
+    path: __dirname + "/dist"
   },
   resolve: {
-    extensions: ['.json', '.jsx', '.js'],
+    extensions: ['.json', '.jsx', '.js', 'ts', 'tsx'],
     alias: {
       '@': resolve('src')
     }
@@ -27,6 +27,8 @@ module.exports = {
         test: /\.less$/,
         loader: 'style-loader!css-loader!less-loader'
       },
+      { test: /\.tsx?$/, loader: 'ts-loader' },
+      { enforce: 'pre', test: /\.js$/, loader: 'source-map-loader' },
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
@@ -44,7 +46,7 @@ module.exports = {
         }
       },
       {
-        exclude: [/\.js$/, /\.html$/, /\.less$/, /\.css$/, /\.json$/],
+        exclude: [/\.js$/, /\.html$/, /\.less$/, /\.css$/, /\.json$/, /\.ts$/, /\.tsx/],
         loader: 'file-loader',
         options: {
           name: 'static/[name].[hash:8].[ext]'
@@ -55,8 +57,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: 'src/index.html',
-      inejct: true
+      template: 'src/index.html'
     })
   ]
 };
